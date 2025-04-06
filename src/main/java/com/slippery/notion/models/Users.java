@@ -1,5 +1,6 @@
 package com.slippery.notion.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -32,5 +35,8 @@ public class Users {
     private LocalDateTime updatedAt;
     private String profilePhoto;
     private String email;
+    @JsonManagedReference
+    @OneToMany
+    private List<Notes> notes =new ArrayList<>();
 
 }

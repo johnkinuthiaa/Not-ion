@@ -1,0 +1,7 @@
+POST http://localhost:8080/api/v1/notes/create/user/483975d5-b072-48a8-a150-cecbbce7b257
+Content-Type: application/stream+json
+
+{
+  "content": "I have written a second note today mahn",
+  "title": "Test note 2"
+}

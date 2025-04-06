@@ -24,6 +24,7 @@ public class UserServiceImplementation implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder =new BCryptPasswordEncoder(12);
     private final AuthenticationManager authenticationManager;
+    private final ModelMapper modelMapper =new ModelMapper();
 
     public UserServiceImplementation(UserRepository userRepository, AuthenticationManager authenticationManager) {
         this.userRepository = userRepository;
@@ -110,7 +111,9 @@ public class UserServiceImplementation implements UserService {
             response.setMessage("No users in the database");
             return response;
         }
-//        find a better war for mapping users to the response because this uses O(n) time and will be slow later
+/*       Todo (fix): find a better war for mapping users to the
+          response because this takes O(n) time and will be slow later */
+
 
         for(Users user :userList){
             users.add(createUserResponse(user));

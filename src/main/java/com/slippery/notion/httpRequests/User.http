@@ -6,3 +6,21 @@ Content-Type: application/stream+json
   "email": "kingkaid@gmail.com",
   "password": "stillKingkaid"
 }
+
+###
+GET http://localhost:8080/api/v1/user/login
+Content-Type: application/stream+json
+
+{
+  "username": "mykingkaid",
+  "password": "stillKingkaid"
+}
+
+###
+GET http://localhost:8080/api/v1/user/ddfff4c0-19ec-4ca2-b5a0-fefa5b9cefa0/get
+
+###
+DELETE http://localhost:8080/api/v1/user/f6991abb-6ff2-4457-b683-3260e3e29d87/delete
+
+###
+GET http://localhost:8080/api/v1/user/all

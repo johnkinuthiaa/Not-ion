@@ -1,9 +1,6 @@
 package com.slippery.notion.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +14,14 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(indexes = {
+        @Index(name = "multi_column_index", columnList = "id, username,email"),
+        @Index(name = "id", columnList = "id"),
+        @Index(name = "auth", columnList = "username,password"),
+        @Index(name = "username", columnList = "username"),
+        @Index(name = "email", columnList = "email"),
+        @Index(name = "profile_photo", columnList = "profilePhoto")
+})
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

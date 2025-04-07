@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -105,19 +106,15 @@ public class UserServiceImplementation implements UserService {
     public UserResponse findAllUsers() {
         UserResponse response =new UserResponse();
         var userList =userRepository.findAll();
-        List<UserResp> users =new ArrayList<>();
         if(userList.isEmpty()){
             response.setStatusCode(404);
             response.setMessage("No users in the database");
             return response;
         }
-/*       Todo (fix): find a better war for mapping users to the
+/*        (fixed): find a better war for mapping users to the
           response because this takes O(n) time and will be slow later */
+        var users = Arrays.asList(modelMapper.map(userList,UserResp[].class));
 
-
-        for(Users user :userList){
-            users.add(createUserResponse(user));
-        }
         response.setUsers(users);
         response.setStatusCode(200);
         response.setMessage("All users in the database");

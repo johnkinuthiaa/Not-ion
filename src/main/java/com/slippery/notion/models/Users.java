@@ -36,7 +36,7 @@ public class Users {
     private String profilePhoto;
     private String email;
     @JsonManagedReference
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private List<Notes> notes =new ArrayList<>();
 
 }

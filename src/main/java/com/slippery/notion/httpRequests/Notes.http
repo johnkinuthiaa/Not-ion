@@ -1,7 +1,16 @@
-POST http://localhost:8080/api/v1/notes/create/user/483975d5-b072-48a8-a150-cecbbce7b257
+POST http://localhost:8080/api/v1/notes/create/user/8739e833-892c-409a-bdb0-4812cb3a7614
 Content-Type: application/stream+json
 
 {
-  "content": "I have written a second note today mahn",
-  "title": "Test note 2"
+  "content": "I want to create this so i can delete",
+  "title": "Test note for deletion"
 }
+
+###
+GET http://localhost:8080/api/v1/notes/db2ccd78-8d1c-4360-9088-fbf46324e298/find
+
+###
+GET http://localhost:8080/api/v1/notes/8739e833-892c-409a-bdb0-4812cb3a7614/all
+
+###
+DELETE http://localhost:8080/api/v1/notes/8739e833-892c-409a-bdb0-4812cb3a7614/user/delete-note/dcb6a59c-9b6a-42f4-8d09-02af2f6d6cdb

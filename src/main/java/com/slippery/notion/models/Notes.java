@@ -14,6 +14,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(indexes = {
+        @Index(name = "note_index",columnList ="id" )
+})
 public class Notes {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

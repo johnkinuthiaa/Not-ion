@@ -22,4 +22,22 @@ public class NotesController {
         var createdNote = service.createNewNote(request, userId);
         return ResponseEntity.status(HttpStatusCode.valueOf(createdNote.getStatusCode())).body(createdNote);
     }
+
+    @GetMapping("/{noteId}/find")
+    public ResponseEntity<NotesResponse> getNoteById(@PathVariable String noteId) {
+        var foundNote =service.findNoteById(noteId);
+        return ResponseEntity.status(HttpStatusCode.valueOf(foundNote.getStatusCode())).body(foundNote);
+    }
+
+    @GetMapping("/{userId}/all")
+    public ResponseEntity<NotesResponse> getAllNotesByUser(@PathVariable String userId) {
+        var allNotesByUser =service.findAllNotesByUser(userId);
+        return ResponseEntity.status(HttpStatusCode.valueOf(allNotesByUser.getStatusCode())).body(allNotesByUser);
+    }
+
+    @DeleteMapping("/{userId}/user/delete-note/{noteId}")
+    public ResponseEntity<NotesResponse> deleteNoteById(@PathVariable String noteId,@PathVariable String userId) {
+        var deletedNote =service.deleteNoteById(noteId,userId);
+        return ResponseEntity.status(HttpStatusCode.valueOf(deletedNote.getStatusCode())).body(deletedNote);
+    }
 }

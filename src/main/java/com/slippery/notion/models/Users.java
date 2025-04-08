@@ -38,5 +38,8 @@ public class Users {
     @JsonManagedReference
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private List<Notes> notes =new ArrayList<>();
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Tasks> tasks =new ArrayList<>();
 
 }

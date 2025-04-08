@@ -1,5 +1,6 @@
 package com.slippery.notion.service.impl;
 
+import com.slippery.notion.dto.TasksDto;
 import com.slippery.notion.dto.UserRequests;
 import com.slippery.notion.dto.UserResp;
 import com.slippery.notion.dto.UserResponse;
@@ -44,8 +45,8 @@ public class UserServiceImplementation implements UserService {
         user.setProfilePhoto(null);
         user.setUpdatedAt(null);
         user.setEmail(request.getEmail());
+        user.setTasks(new ArrayList<>());
         userRepository.save(user);
-
 //        create response object
         UserResp createdResponse =createUserResponse(user);
 

@@ -1,0 +1,27 @@
+POST http://localhost:8080/api/v1/tasks/bc4d30c1-9d9f-407f-983a-cb20f175fde7/new
+Content-Type: application/stream+json
+
+{
+  "title": "create backend api",
+  "deadline": "2025-12-03T10:15:30",
+  "percentage": 0,
+  "priority": "HIGH",
+  "status": "IN_PROGRESS",
+  "description": "i need to create an api for the tasks model"
+}
+###
+GET http://localhost:8080/api/v1/tasks/user/bc4d30c1-9d9f-407f-983a-cb20f175fde7/task/08be9709-0ebe-48fe-815d-d7989c36a115
+
+###
+DELETE http://localhost:8080/api/v1/tasks/user/bc4d30c1-9d9f-407f-983a-cb20f175fde7/delete/157d2f84-1911-40e8-a14a-7b59e700df82
+
+###
+GET http://localhost:8080/api/v1/tasks/user/bc4d30c1-9d9f-407f-983a-cb20f175fde7/all-tasks
+
+###
+PATCH http://localhost:8080/api/v1/tasks/user/bc4d30c1-9d9f-407f-983a-cb20f175fde7/delete/3894f00c-60ea-4ef7-92be-7cf44fb15e2a/update-status
+Content-Type: application/stream+json
+
+{
+  "status": "COMPLETED"
+}

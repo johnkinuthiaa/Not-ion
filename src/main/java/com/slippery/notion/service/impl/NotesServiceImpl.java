@@ -120,7 +120,7 @@ public class NotesServiceImpl implements NotesService {
         userNotes.remove(note);
         existingUser.get().setNotes(userNotes);
         userRepository.save(existingUser.get());
-
+        repository.deleteById(noteId);
         response.setMessage("Note with id "+noteId+" deleted successfully");
         response.setStatusCode(200);
         return response;

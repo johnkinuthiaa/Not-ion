@@ -2,6 +2,7 @@ package com.slippery.notion.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,11 +30,14 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+    @NotNull
     private String username;
+    @NotNull
     private String password;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private String profilePhoto;
+    @NotNull
     private String email;
     @JsonManagedReference
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)

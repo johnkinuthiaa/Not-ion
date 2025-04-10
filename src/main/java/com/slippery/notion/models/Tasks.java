@@ -27,6 +27,8 @@ public class Tasks {
     private LocalDateTime deadline;
     private LocalDateTime createdOn;
     private LocalDateTime completedOn;
+    private LocalDateTime updatedOn;
+    private boolean pastDeadline;
     @ManyToOne
     @JsonBackReference
     private Users user;

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/user")
+@CrossOrigin("http://localhost:3000")
 public class UserController {
     private final UserService service;
 
@@ -22,7 +23,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatusCode.valueOf(createdUser.getStatusCode())).body(createdUser);
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<UserResponse> login(@RequestBody UserRequests loginRequest) {
         var loggedInUser =service.login(loginRequest);
         return ResponseEntity.status(HttpStatusCode.valueOf(loggedInUser.getStatusCode())).body(loggedInUser);

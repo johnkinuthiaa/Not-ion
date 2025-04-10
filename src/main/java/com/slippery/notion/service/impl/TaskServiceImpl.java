@@ -158,6 +158,8 @@ public class TaskServiceImpl implements TaskService {
             task.get().setCompletedOn(LocalDateTime.now());
             task.get().setPriority(Priority.LOW);
         }
+        task.get().setUpdatedOn(LocalDateTime.now());
+        task.get().setCompletedOn(null);
         repository.save(task.get());
         response.setMessage("Task "+taskId+" has been updated successfully");
         response.setStatusCode(206);

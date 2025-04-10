@@ -8,7 +8,7 @@ Content-Type: application/stream+json
 }
 
 ###
-GET http://localhost:8080/api/v1/user/login
+POST http://localhost:8080/api/v1/user/login
 Content-Type: application/stream+json
 
 {

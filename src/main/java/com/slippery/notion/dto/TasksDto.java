@@ -26,4 +26,6 @@ public class TasksDto {
 //    adding this prevents unending loop
     @JsonBackReference
     private UserResp user;
+    private LocalDateTime updatedOn;
+    private boolean pastDeadline;
 }
